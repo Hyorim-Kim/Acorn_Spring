@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     <bean id="moneyCalc" class="pack.model.MoneyCalc" /><!-- MoneyCalc에 줄 거 없음, 막기 --><!-- singleton 형식의 객체 생성, 생성자 호출 -->
+     
+     <bean id="myService" class="pack.controller.MyServiceProcess"><!-- 생성자 호출 -->
+      	<constructor-arg>
+      	 	<ref bean="moneyCalc" /><!-- promotion-부모객체의 주소는 자식의 주소로 치환할 수 있음, calcMoney 호출 -->
+      	</constructor-arg>
+     </bean>    
+</beans>
