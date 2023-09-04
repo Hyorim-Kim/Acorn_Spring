@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+      <bean id="businessServiceImpl" class="pack.controller.BusinessServiceImpl">
+       	<constructor-arg>
+       	 	<!-- 
+       	 	<ref bean="dataDaoImpl" />
+       	 	-->
+       	 	<ref bean="sbs" /><!-- id는 중복불가, name은 가능 -->
+       	</constructor-arg>
+      </bean>
+      <bean id="dataDaoImpl" name="kbs,mbc,sbs" class="pack.model.DataDaoImpl" /><!-- 객체가 만들어진 상태에서 호출 후 사용 -->
+</beans>
