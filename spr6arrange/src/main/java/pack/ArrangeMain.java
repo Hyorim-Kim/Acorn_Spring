@@ -40,7 +40,7 @@ public class ArrangeMain {
 		
 		System.out.println();  // MessageImpl의 super 클래스를 사용
 		MessageInter inter1 = (MessageInter)context.getBean("msgImpl");
-		inter1.sayHi();
+		inter1.sayHi();  // 부모 객체를 이용하여 자식 메소드를 호출 
 		MessageInter inter2 = (MessageInter)context.getBean("msgImpl");
 		inter2.sayHi();
 		
