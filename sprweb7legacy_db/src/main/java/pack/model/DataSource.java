@@ -1,0 +1,16 @@
+package pack.model;
+
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+@Component
+//@Repository
+public class DataSource extends DriverManagerDataSource {  
+	public DataSource() {
+		setDriverClassName("org.mariadb.jdbc.Driver");
+		setUrl("jdbc:mariadb://localhost:3307/test");
+		setUsername("root");
+		setPassword("seoho123");
+	}
+}
