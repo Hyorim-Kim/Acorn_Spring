@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+ 	document.querySelector("#btnList").onclick = function(){
+		 //alert("a");
+		 location.href="list";
+	}
+	document.querySelector("#btnUpdate").onclick = function(){
+		 //alert("b");
+		 if(confirm("정말 수정할까요?")){
+			 frm.action="update";
+			 frm.method="post";  //많은 양의 데이터 수정 - post
+			 frm.submit();
+		 }
+	}
+	document.querySelector("#btnDelete").onclick = function(){
+		 //alert("c");
+		 if(confirm("정말 삭제할까요?")){
+			 frm.action="delete";
+			 frm.method="get";
+			 frm.submit();
+		 }
+	}
+}
+
+</script>	
+</head>
+<body>
+<h3>* 상세 보기 *</h3>
+<form name="frm" th:object="${board}">  <!--board 들어옴-->
+	글번호 : [[${board.num}]]  <!--보이기만 함-->
+	<input type="hidden" th:field="*{num}" /><br/>  <!--수정가능-->
+	작성자 : <input type="text" th:field="*{author}"><br/>
+	글제목 : <input type="text" th:field="*{title}"><br/>
+	글내용 : <textarea rows="5" cols="50" th:field="*{content}"></textarea><br/>
+	작성일 : [[${board.bwrite}]]<br/>
+	조회수 : [[${board.readcnt}]]<br/>
+	<br/>
+	<input type="button" value="목록" id="btnList" />
+	<input type="button" value="수정" id="btnUpdate" />
+	<input type="button" value="삭제" id="btnDelete" />
+</form>
+</body>
+</html>
